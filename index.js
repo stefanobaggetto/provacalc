@@ -8,23 +8,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-ar port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
 
 var router = express.Router();
 
 router.route('/sum')
 .get(function (req, res) {
-    var x = parsefloat(req.query.x);
-    var y = parsefloat(req.query.y);
+    var x = parseFloat(req.query.x);
+    var y = parseFloat(req.query.y);
     var r = x + y;
     res.json(r);
     res.status = 200;
     });
 
-router.route('/muliply')
+router.route('/multiply')
 .get(function (req, res) {
-    var x = parsefloat(req.query.x);
-    var y = parsefloat(req.query.y);
+    var x = parseFloat(req.query.x);
+    var y = parseFloat(req.query.y);
     var r = x * y;
     res.json(r);
     res.status = 200;

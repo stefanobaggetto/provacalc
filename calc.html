@@ -11,13 +11,46 @@
          <h1>Javascript basics</h1>
       </header>
       <form>
-      <p>Calcolatrice</p>
-         <input type="text" id="primo"></input></br>
-         <input type="text" id="secondo"></input></br>
+            <p>Calcolatrice</p>
+         x: <input type="text" id="x"></input></br>
+         y: <input type="text" id="y"></input></br>
+         res: <input type="text" id="r"></input></br>
 
        <button onclick="somma()">somma</button></br>
        <button onclick="moltiplicazione()">moltiplica</button></br>
      </form >
-<script src="script.js"></script>
+
+<script type="text/javascript">
+
+    function somma(){
+        var x = parseFloat(document.getElementById('x'));
+        var y = parseFloat(document.getElementById('y'));
+        
+        const url = 'https://localhost:5000/api/sum?x=3&?y=2';    
+        fetch(url)
+        .then((resp) => resp.json()) // Transform the data into json /*Scriviamo alla promise e scriviamo una call. Parsiamo la scritta in json */
+            .then(function(data) { /*quando il parser ha finito facciamo quest'altra funzione, modificazioni sulla pagina*/
+                // Here you get the data to modify as you please
+                /*let authors = data.results; // Get the results
+                return authors.map(function(author) { // Map through the results and for each run the code below 
+                    let li = document.createElement('li'); //  Create the elements we need
+                    let img = document.createElement('img');
+                    let span = document.createElement('span');
+                    img.src = author.picture.medium;  // Add the source of the image to be the src of the img element
+                    span.innerHTML = `${author.name.first} ${author.name.last}`; // Make the HTML of our span to be the first and last name of our author
+                    // Append all our elements
+                    li.appendChild(img);
+                    li.appendChild(span);
+                    ul.appendChild(li);*/
+            alert(data);
+                })
+            })
+            .catch( error => console.error(error) );// If there is any error you will catch them here
+    }
+    
+    
+
+</script>
+
    </body>
 </html>
